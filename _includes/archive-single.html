@@ -1,21 +1,24 @@
-<article class="archive__item">
+{% assign p = post %}
 
-  <h3 class="archive__item-title">
-    {{ post.title }}
-  </h3>
+<article class="pub-item">
+  <div class="pub-title">
+    <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+  </div>
 
-  {% if post.citation %}
-    <p>{{ post.citation }}</p>
+  {% if p.authors %}
+    <div class="pub-authors">{{ p.authors }}</div>
   {% endif %}
 
-  {% if post.paperurl %}
-    <p>
-      <a href="{{ post.paperurl }}">Paper</a>
-      {% if post.slides %} · <a href="{{ post.slides }}">Slides</a>{% endif %}
-      {% if post.code %} · <a href="{{ post.code }}">Code</a>{% endif %}
-      {% if post.arxiv %} · <a href="{{ post.arxiv }}">arXiv</a>{% endif %}
-    </p>
-  {% endif %}
+  <div class="pub-venue">
+    {% if p.venue %}<span class="pub-venue-name">{{ p.venue }}</span>{% endif %}
+    {% if p.year %}<span class="pub-year"> ({{ p.year }})</span>{% endif %}
+    {% if p.date and p.year == nil %}<span class="pub-year"> ({{ p.date | date: "%Y" }})</span>{% endif %}
+  </div>
 
+  <div class="pub-links">
+    {% if p.paperurl %}<a href="{{ p.paperurl }}">paper</a>{% endif %}
+    {% if p.arxiv %}{% if p.paperurl %}<span class="sep">·</span>{% endif %}<a href="{{ p.arxiv }}">arXiv</a>{% endif %}
+    {% if p.code %}{% if p.paperurl or p.arxiv %}<span class="sep">·</span>{% endif %}<a href="{{ p.code }}">code</a>{% endif %}
+    {% if p.slides %}{% if p.paperurl or p.arxiv or p.code %}<span class="sep">·</span>{% endif %}<a href="{{ p.slides }}">slides</a>{% endif %}
+  </div>
 </article>
-<hr>
