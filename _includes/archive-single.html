@@ -1,9 +1,9 @@
 {% assign p = post %}
 
 <article class="pub-item">
-  <div class="pub-title">
-    <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-  </div>
+<div class="pub-title">
+  {{ p.title }}
+</div>
 
   {% if p.authors %}
     <div class="pub-authors">{{ p.authors }}</div>
