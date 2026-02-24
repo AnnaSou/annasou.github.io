@@ -1,9 +1,10 @@
 ---
 title: "APERTUS: Democratizing Open and Compliant LLMS for Global Language Environments"
 collection: publications
-permalink: /publication/2026-apertus
-date: 2026-01-01
-venue: "Submitted to ACL 2026 (Technical report)"
-paperurl: "https://arxiv.org/abs/2509.14233"
-citation: 
+year: 2026
+venue: "Submitted to ACL 2026"
+authors: "APERTUS team" 
+paperurl:
+arxiv: "https://arxiv.org/abs/2509.14233"
+code:"https://github.com/swiss-ai"
 ---
