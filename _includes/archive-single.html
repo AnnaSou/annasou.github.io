@@ -5,9 +5,9 @@
   {{ p.title }}
 </div>
 
-  {% if p.authors %}
-    <div class="pub-authors">{{ p.authors }}</div>
-  {% endif %}
+<div class="pub-authors">
+  {{ p.authors | replace: "Anna Sotnikova", "<strong>Anna Sotnikova</strong>" }}
+</div>
 
   <div class="pub-venue">
     {% if p.venue %}<span class="pub-venue-name">{{ p.venue }}</span>{% endif %}
